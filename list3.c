@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mraynor <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 20:58:17 by mraynor           #+#    #+#             */
-/*   Updated: 2019/03/03 20:58:20 by mraynor          ###   ########.fr       */
+/*   Updated: 2019/03/08 19:58:10 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,13 @@ void		print_ant(int ant, char *name)
 	ft_putstr("-");
 	ft_putstr(name);
 	ft_putstr(" ");
+}
+
+void		print_buff(t_list *head)
+{
+	while (head)
+	{
+		ft_putendl(head->content);
+		head = head->next;
+	}
 }

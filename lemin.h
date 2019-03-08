@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lemin.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mraynor <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 15:25:46 by mraynor           #+#    #+#             */
-/*   Updated: 2019/02/02 15:25:48 by mraynor          ###   ########.fr       */
+/*   Updated: 2019/03/08 19:59:10 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void			print_buff(t_list *head);
 void			init_ant(t_lemin *t);
 int				add_list(t_list1 **st, char *name, int x, int y);
 int				add_neigh(t_list1 *base, t_list1 *add);
-int				read_input(t_lemin *lem, char *name, int isnviz);
+int				read_input(t_lemin *lem, char *name);
 int				read_com(t_lemin *lem, int i, int j, int k);
 void			find_min(t_list1 *t, int *maxx, int *maxy, t_cf *cf);
 int				close1(t_cf *cf);
@@ -112,4 +112,13 @@ void			line(int a[2], int b[2], t_cf *cf, int col);
 void			do_net(t_list1	*t, t_cf *cf, int minx, int miny);
 int				find_len_st(t_lemin *lem, t_list1 *l, int i);
 void			del_arr(char **com);
+int				ft_xatoi(const char *str);
+void			parse_neigh(t_lemin *lem, char *line, int *last_type,
+					int *type);
+void			parse_room(t_lemin *lem, char *line, int *last_type, int *type);
+int				get_type(char *line);
+int				add_room_to_lem(t_lemin *lem, char *line, int room_type);
+void			parse_ants(t_lemin *lem, char *line, int *last_type);
+int				add_list_unique(t_list1 **st, char *n, int x, int y);
+int				connect_to_list(t_lemin *lem, char *name, int room_type);
 #endif

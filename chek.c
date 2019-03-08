@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chek.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mraynor <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 23:42:04 by mraynor           #+#    #+#             */
-/*   Updated: 2019/03/06 23:42:08 by mraynor          ###   ########.fr       */
+/*   Updated: 2019/03/08 20:00:41 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int		main(void)
 	int			i;
 
 	if (!(lem = (t_lemin *)ft_memalloc(sizeof(t_lemin))) ||
-		read_input(lem, 0, 1) == 0 || !(lem->prway =
+		read_input(lem, 0) == 0 || !(lem->prway =
 		(t_neigh **)ft_memalloc(sizeof(t_neigh *) * lem->cants)))
 		free_chek(lem, -1);
 	x = -1;

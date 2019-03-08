@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vizual.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mraynor <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 20:44:51 by mraynor           #+#    #+#             */
-/*   Updated: 2019/02/04 20:44:56 by mraynor          ###   ########.fr       */
+/*   Updated: 2019/03/08 19:59:27 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ int		main(int a, char **c)
 
 	if (!(cf = (t_cf *)ft_memalloc(sizeof(t_cf))) ||
 		!(cf->lem = (t_lemin *)ft_memalloc(sizeof(t_lemin))) ||
-		read_input(cf->lem, 0, 1) == 1 || !cf->lem->rlist)
+		read_input(cf->lem, 0) == 1 || !cf->lem->rlist)
 	{
 		printf("Error\n");
 		close1(cf);

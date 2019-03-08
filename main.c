@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mraynor <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 16:52:53 by mraynor           #+#    #+#             */
-/*   Updated: 2019/02/02 16:52:56 by mraynor          ###   ########.fr       */
+/*   Updated: 2019/03/08 19:59:21 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ int		main()
 	int			x;
 
 	if (!(lem = (t_lemin *)ft_memalloc(sizeof(t_lemin))) ||
-		read_input(lem, 0, 1) == -1 || !find_len_st(lem, lem->start, 1)
+		read_input(lem, 0) == -1 || !find_len_st(lem, lem->start, 1)
 		|| lem->end->wayst == 0)
 	{
 		printf("Error\n");
