@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_ant.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mraynor <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 13:56:25 by mraynor           #+#    #+#             */
-/*   Updated: 2019/02/07 13:56:30 by mraynor          ###   ########.fr       */
+/*   Updated: 2019/03/08 20:56:41 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ void	line(int a[2], int b[2], t_cf *cf, int col)
 void	do_net(t_list1 *t, t_cf *cf, int minx, int miny)
 {
 	t_neigh		*next;
-	t_list1		*now;
 	int			col;
 	int			a[2];
 	int			b[2];

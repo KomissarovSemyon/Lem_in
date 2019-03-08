@@ -6,14 +6,14 @@
 /*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 15:25:46 by mraynor           #+#    #+#             */
-/*   Updated: 2019/03/08 19:59:10 by amerlon-         ###   ########.fr       */
+/*   Updated: 2019/03/08 20:56:33 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEMIN_H
 # define LEMIN_H
 
-# include "libft/inc/libft.h"
+# include "libft.h"
 # include <stdio.h>
 # include "mlx.h"
 # define W_SIZE 1500

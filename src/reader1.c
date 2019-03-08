@@ -6,7 +6,7 @@
 /*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 18:33:15 by amerlon-          #+#    #+#             */
-/*   Updated: 2019/03/06 23:19:08 by amerlon-         ###   ########.fr       */
+/*   Updated: 2019/03/08 20:56:48 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ static int	exec_cmd(t_lemin *lem, int type, int fd)
 
 int			get_type(char *line)
 {
-	int	nbr;
-
 	if (line[0] == '#' && line[1] == '#' && ft_strcmp(line + 2, "start") == 0)
 		return (4);
 	if (line[0] == '#' && line[1] == '#' && ft_strcmp(line + 2, "end") == 0)
