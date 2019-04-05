@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_nchjoinstr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: semyonkomissarov <semyonkomissarov@stud    +#+  +:+       +#+        */
+/*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 14:29:35 by amerlon-          #+#    #+#             */
-/*   Updated: 2019/02/13 11:41:14 by semyonkomis      ###   ########.fr       */
+/*   Updated: 2019/03/09 15:51:05 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: semyonkomissarov <semyonkomissarov@stud    +#+  +:+       +#+        */
+/*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 22:08:44 by amerlon-          #+#    #+#             */
-/*   Updated: 2019/02/13 11:25:05 by semyonkomis      ###   ########.fr       */
+/*   Updated: 2019/03/09 15:51:10 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

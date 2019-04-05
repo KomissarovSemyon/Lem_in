@@ -6,7 +6,7 @@
 /*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 20:58:17 by mraynor           #+#    #+#             */
-/*   Updated: 2019/03/08 19:58:10 by amerlon-         ###   ########.fr       */
+/*   Updated: 2019/03/09 14:15:52 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,12 @@ void		init_way(t_lemin *t)
 		add_neigh_to_neigh(&t->ways[i * 2], t->end);
 }
 
-void		free_all(t_lemin *lem)
+void		free_all(t_lemin *lem, int i)
 {
 	int x;
 
+	if (i == 1)
+		write(1, "Error\n", 6);
 	if (lem)
 	{
 		if (lem->prway)
@@ -70,6 +72,7 @@ void		free_all(t_lemin *lem)
 		if (lem->rlist)
 			del_list(&lem->rlist);
 		free(lem->c);
+		ft_lstdel(&(lem->buff_head), NULL);
 		free(lem);
 	}
 	exit(0);

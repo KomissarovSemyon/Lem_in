@@ -3,42 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   read_ant.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mraynor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 13:56:25 by mraynor           #+#    #+#             */
-/*   Updated: 2019/03/08 20:56:41 by amerlon-         ###   ########.fr       */
+/*   Updated: 2019/02/07 13:56:30 by mraynor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
+
+int		littel_free_v(char **com, char *room, int i)
+{
+	free(room);
+	if (i != 0 && i != -1)
+		del_arr(com);
+	return (i);
+}
 
 int		read_com(t_lemin *lem, int i, int j, int k)
 {
 	char **com;
 	char *room;
 
+	com = NULL;
 	if ((k = ft_gnl(0, &room)) != 1)
-		return (k);
+		return (littel_free_v(com, room, k));
 	com = ft_strsplit(room, ' ');
-	free(room);
 	while (com[++i])
 	{
 		j = 0;
 		if ((k = ft_atoi(com[i] + 1)) < 1 || k > lem->cants)
-			return (-1);
+			return (littel_free_v(com, room, -2));
 		while (com[i][++j] <= '9' && com[i][j] >= '0')
 			;
+		free(room);
 		room = ft_strsub(com[i], j + 1, ft_strlen(com[i]) - j - 1);
 		add_neigh_to_neigh(&lem->prway[k - 1], find_list(lem->rlist, room));
 		if (!lem->prway[k - 1] || !lem->prway[k - 1]->next)
-			return (0);
+			return (littel_free_v(com, room, -2));
 		lem->prway[k - 1]->next->room->status = (lem->prway[k - 1]->next->room
 			== lem->start) ? lem->prway[k - 1]->next->room->status - 1 : 0;
 		lem->prway[k - 1]->room->status = k;
-		free(room);
 	}
-	del_arr(com);
-	return (1);
+	return (littel_free_v(com, room, 1));
 }
 
 void	find_min(t_list1 *t, int *maxx, int *maxy, t_cf *cf)
@@ -62,28 +69,6 @@ void	find_min(t_list1 *t, int *maxx, int *maxy, t_cf *cf)
 	}
 }
 
-int		close1(t_cf *cf)
-{
-	int x;
-
-	x = -1;
-	if (cf && cf->win)
-		mlx_destroy_window(cf->ptr, cf->win);
-	if (cf && cf->lem)
-	{
-		if (cf->lem->prway)
-			while (++x < cf->lem->cants)
-				if (cf->lem->prway[x])
-					del_neight(&cf->lem->prway[x], cf->lem->end);
-		del_list(&cf->lem->rlist);
-		free(cf->lem->prway);
-		free(cf->lem);
-	}
-	free(cf);
-	exit(0);
-	return (0);
-}
-
 void	line(int a[2], int b[2], t_cf *cf, int col)
 {
 	int		l;
@@ -101,7 +86,7 @@ void	line(int a[2], int b[2], t_cf *cf, int col)
 	while (l--)
 	{
 		if ((z[1] >= 0 && z[1] < H_SIZE && z[0] >= 0 && z[0] < W_SIZE &&
-		IS_SQRT(z[0], a[0], z[1], a[1], cf->sizer) && IS_SQRT(z[0], b[0], z[1],
+		IS_SQ(z[0], a[0], z[1], a[1], cf->sizer) && IS_SQ(z[0], b[0], z[1],
 		b[1], cf->sizer)) || col == COL_ANT)
 		{
 			mlx_pixel_put(cf->ptr, cf->win, (int)(z[0]), (int)(z[1]), col);

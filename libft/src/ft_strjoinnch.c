@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoinnch.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: semyonkomissarov <semyonkomissarov@stud    +#+  +:+       +#+        */
+/*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 14:09:57 by amerlon-          #+#    #+#             */
-/*   Updated: 2019/02/13 11:40:18 by semyonkomis      ###   ########.fr       */
+/*   Updated: 2019/03/09 15:51:59 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

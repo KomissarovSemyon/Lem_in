@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mraynor <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 19:27:06 by mraynor           #+#    #+#             */
-/*   Updated: 2019/02/02 19:27:09 by mraynor          ###   ########.fr       */
+/*   Updated: 2019/03/09 15:52:42 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int			len_way(t_neigh *t)
 	return (len_way(t->next) + 1);
 }
 
-void	del_arr(char **com)
+void		del_arr(char **com)
 {
 	int i;
 

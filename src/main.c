@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem-in.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 16:52:53 by mraynor           #+#    #+#             */
-/*   Updated: 2019/03/08 21:05:20 by amerlon-         ###   ########.fr       */
+/*   Updated: 2019/03/09 14:15:48 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,34 +128,29 @@ void	do_short(t_neigh **ways, t_lemin *lem, int min, int i)
 	free(arr);
 }
 
-int		main()
+int		main(int argc, char **argv)
 {
 	t_lemin		*lem;
 	int			x;
 
+	(void)argc;
 	if (!(lem = (t_lemin *)ft_memalloc(sizeof(t_lemin))) ||
-		read_input(lem, 0) == -1 || !find_len_st(lem, lem->start, 1)
+		read_input(lem, argv[1]) == -1 || !find_len_st(lem, lem->start, 1)
 		|| lem->end->wayst == 0)
-	{
-		printf("Error\n");
-		free_all(lem);
-	}
+		free_all(lem, 1);
 	print_buff(lem->buff_head);
 	write(1, "\n", 1);
 	lem->end->status = 1;
 	lem->count = 1;
 	init_way(lem);
-	while(ant_way(lem, 0, -1) != 1)
+	while (ant_way(lem, 0, -1) != 1)
 		;
 	if (!(lem->prway = (t_neigh **)ft_memalloc(sizeof(t_neigh *) * lem->cants)))
-	{
-		printf("Error\n");
-		free_all(lem);
-	}
+		free_all(lem, 1);
 	do_short(lem->ways, lem, 0, -1);
 	x = 0;
 	while (x > -1)
 		x = print_st(lem, x);
-	free_all(lem);
+	free_all(lem, 0);
 	return (0);
 }

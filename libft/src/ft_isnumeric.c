@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isnumeric.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: semyonkomissarov <semyonkomissarov@stud    +#+  +:+       +#+        */
+/*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 19:03:32 by semyonkomis       #+#    #+#             */
-/*   Updated: 2019/03/02 19:07:02 by semyonkomis      ###   ########.fr       */
+/*   Updated: 2019/03/09 15:50:44 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

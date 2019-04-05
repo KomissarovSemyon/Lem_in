@@ -33,7 +33,7 @@
 # define FABS(x) (x < 0) ? (x * (-1)) : x
 # define CORD_X(x, dx, minx) BORD_X / 2 + dx * (x - minx)
 # define CORD_Y(y, dy, miny) BORD_Y / 2 + dy * (y - miny)
-# define IS_SQRT(x, x1, y, y1, h) !(x < x1 + h && y < y1 + h && x > x1 && y > y1)
+# define IS_SQ(x, x1, y, y1, h) !(x < x1 + h && y < y1 + h && x > x1 && y > y1)
 
 typedef struct s_list1	t_list1;
 typedef struct	s_neigh
@@ -89,6 +89,8 @@ void			del_neight(t_neigh **t, t_list1 *end);
 void			del_list(t_list1 **l);
 t_list1			*find_first_way_new(t_neigh *t1, int count, t_lemin *lem,
 					t_neigh *no);
+void			do_col_net(t_cf *cf, int n, int i);
+void			draw(t_list1 *t, t_cf *cf);
 int				find_other_way(t_lemin *lem, int let, int now, t_list1 *no);
 int				del_first(t_neigh **base, t_list1 *end);
 t_list1			*ret_last(t_neigh *base);
@@ -96,7 +98,7 @@ int				add_neigh_to_neigh(t_neigh **base, t_list1 *add);
 int				len_way(t_neigh *t);
 void			find_den_room(t_list1 *l, t_lemin *lem);
 int				is_have(t_neigh *no, t_list1 *room);
-void			free_all(t_lemin *lem);
+void			free_all(t_lemin *lem, int i);
 void			print_ant(int ant, char *name);
 int				ant_way(t_lemin *lem, int en, int i);
 t_list1			*find_list(t_list1 *l, const char *name);

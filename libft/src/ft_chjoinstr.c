@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_chjoinstr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: semyonkomissarov <semyonkomissarov@stud    +#+  +:+       +#+        */
+/*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 18:10:07 by amerlon-          #+#    #+#             */
-/*   Updated: 2019/02/13 11:39:37 by semyonkomis      ###   ########.fr       */
+/*   Updated: 2019/03/09 15:50:36 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

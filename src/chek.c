@@ -12,56 +12,6 @@
 
 #include "lemin.h"
 
-int		chek_par(t_lemin *lem, char **com, int i, int *arr)
-{
-	int		j;
-	int		k;
-
-	j = 0;
-	k = ft_atoi(com[i] + 1);
-	if (k < 1 || k > lem->cants)
-		return (-2);
-	arr[i] = k;
-	k = -1;
-	while (++k < i)
-		if (arr[k] == arr[i])
-			return (-2);
-	while (com[i][++j] <= '9' && com[i][j] >= '0')
-		;
-	return (j);
-}
-
-
-
-int		chec(t_lemin *lem, int line, int i, int j)
-{
-	char	**com;
-	char	*room;
-	t_neigh	*n;
-	int		arr[lem->cants];
-
-	if ((j = ft_gnl(0, &room)) != 1)
-		return (j);
-	com = ft_strsplit(room, ' ');
-	free(room);
-	while (com[++i])
-	{
-		if ((j = chek_par(lem, com, i, arr)) == -2 ||
-		!(room = ft_strsub(com[i], j + 1, ft_strlen(com[i]) - j - 1)))
-			return (-2);
-		n = lem->prway[arr[i] - 1]->room->neigh;
-		while (n && ft_strcmp(n->room->name, room))
-			n = n->next;
-		if (!n || (n->room->status == line && n->room != lem->end))
-			return (-2);
-		n->room->status = line;
-		add_neigh_to_neigh(&lem->prway[arr[i] - 1], n->room);
-		free(room);
-	}
-	del_arr(com);
-	return (1);
-}
-
 void	free_chek(t_lemin *lem, int i)
 {
 	int x;
@@ -80,10 +30,71 @@ void	free_chek(t_lemin *lem, int i)
 				if (lem->prway[x])
 					del_neight(&lem->prway[x], lem->end);
 		free(lem->prway);
+		ft_lstdel(&(lem->buff_head), NULL);
 		del_list(&lem->rlist);
 		free(lem);
 	}
 	exit(0);
+}
+
+int		littel_free(char **com, char *room, t_lemin *lem, int i)
+{
+	free(room);
+	if (i != 0 && i != -1)
+		del_arr(com);
+	if (i == 0 || i == -1)
+		return (i);
+	if (i == -2)
+		free_chek(lem, i);
+	return (0);
+}
+
+int		chek_par(t_lemin *lem, char **com, int i, int *arr)
+{
+	int		j;
+	int		k;
+
+	j = 0;
+	k = ft_atoi(com[i] + 1);
+	if (k < 1 || k > lem->cants)
+		littel_free(com, NULL, lem, -2);
+	arr[i] = k;
+	k = -1;
+	while (++k < i)
+		if (arr[k] == arr[i])
+			littel_free(com, NULL, lem, -2);
+	while (com[i][++j] <= '9' && com[i][j] >= '0')
+		;
+	return (j);
+}
+
+int		chec(t_lemin *lem, int line, int i, int j)
+{
+	char	**com;
+	char	*room;
+	t_neigh	*n;
+	int		arr[lem->cants];
+
+	com = NULL;
+	if ((j = ft_gnl(0, &room)) != 1)
+		return (littel_free(com, room, lem, j));
+	com = ft_strsplit(room, ' ');
+	while (com[++i])
+	{
+		free(room);
+		if ((j = chek_par(lem, com, i, arr)) == -2 ||
+		!(room = ft_strsub(com[i], j + 1, ft_strlen(com[i]) - j - 1)))
+			littel_free(com, room, lem, -2);
+		n = lem->prway[arr[i] - 1]->room->neigh;
+		while (n && ft_strcmp(n->room->name, room))
+			n = n->next;
+		if (!n || (n->room->status == line && n->room != lem->end))
+			littel_free(com, room, lem, -2);
+		n->room->status = line;
+		add_neigh_to_neigh(&lem->prway[arr[i] - 1], n->room);
+	}
+	littel_free(com, room, lem, 3);
+	return (1);
 }
 
 int		main(void)
@@ -93,7 +104,7 @@ int		main(void)
 	int			i;
 
 	if (!(lem = (t_lemin *)ft_memalloc(sizeof(t_lemin))) ||
-		read_input(lem, 0) == 0 || !(lem->prway =
+		read_input(lem, 0) == 0 || !lem->rlist || !(lem->prway =
 		(t_neigh **)ft_memalloc(sizeof(t_neigh *) * lem->cants)))
 		free_chek(lem, -1);
 	x = -1;

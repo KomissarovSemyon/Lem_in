@@ -6,7 +6,7 @@
 /*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 18:33:15 by amerlon-          #+#    #+#             */
-/*   Updated: 2019/03/08 21:53:57 by amerlon-         ###   ########.fr       */
+/*   Updated: 2019/03/09 14:27:49 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int			parse_line_room(char *line, int *x, int *y, char **name)
 		return (-ft_strdel(name));
 	line = line + i + 1;
 	if (!ft_strchr(line, ' '))
-		return (-1);
+		return (-ft_strdel(name));
 	i = ft_strchr(line, ' ') - line;
 	line[i] = '\0';
 	*x = ft_xatoi(line);
@@ -52,7 +52,7 @@ int			add_room_to_lem(t_lemin *lem, char *line, int room_type)
 	int		y;
 	char	*name;
 
-	if ((room_type == 1 && !lem->start) || (room_type == 2 && !lem->end))
+	if ((room_type == 1 && lem->start) || (room_type == 2 && lem->end))
 		return (-1);
 	i = parse_line_room(line, &x, &y, &name);
 	if (i == -1)

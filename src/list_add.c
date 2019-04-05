@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_add.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mraynor <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 15:50:59 by mraynor           #+#    #+#             */
-/*   Updated: 2019/02/02 15:51:02 by mraynor          ###   ########.fr       */
+/*   Updated: 2019/03/09 14:31:24 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	del_neight(t_neigh **t, t_list1 *end)
 	while (d)
 	{
 		d1 = d->next;
-		if (d->room != end)
+		if (d->room != end && d->room)
 			d->room->status = 0;
 		free(d);
 		d = d1;
@@ -47,6 +47,7 @@ void	del_list(t_list1 **l)
 			free(d);
 			d = d1;
 		}
+		free(t->name);
 		free(t);
 		t = t1;
 	}

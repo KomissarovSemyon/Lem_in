@@ -6,7 +6,7 @@
 /*   By: amerlon- <amerlon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 18:33:15 by amerlon-          #+#    #+#             */
-/*   Updated: 2019/03/08 20:56:48 by amerlon-         ###   ########.fr       */
+/*   Updated: 2019/03/09 15:55:21 by amerlon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ static int	add_to_buffer(t_lemin *lem, char *line)
 	if (!lem->buff_head)
 	{
 		ft_lstadd(&(lem->buff_head),
-			ft_lstnew(ft_strdup(line), ft_strlen(line) + 1));
+			ft_lstnew((line), ft_strlen(line) + 1));
 		lem->buff_tail = lem->buff_head;
 	}
 	else
 	{
-		lem->buff_tail->next = ft_lstnew(ft_strdup(line), ft_strlen(line) + 1);
+		lem->buff_tail->next = ft_lstnew((line), ft_strlen(line) + 1);
 		lem->buff_tail = lem->buff_tail->next;
 	}
 	return (1);
@@ -37,7 +37,10 @@ static int	exec_cmd(t_lemin *lem, int type, int fd)
 	int		t;
 
 	if (ft_gnl(fd, &line) < 0)
+	{
+		free(line);
 		return (-1);
+	}
 	add_to_buffer(lem, line);
 	t = get_type(line);
 	if (t != 2)
@@ -48,7 +51,7 @@ static int	exec_cmd(t_lemin *lem, int type, int fd)
 		if (type == 5)
 		return (add_room_to_lem(lem, line, 2) == -1 ?
 			-ft_strdel(&line) : ft_strdel(&line) + 1);
-		return (-1);
+		return (-ft_strdel(&line));
 }
 
 /*
@@ -107,10 +110,10 @@ int			read_input(t_lemin *lem, char *name)
 		else if (i[1] == 1 || i[1] == 2)
 			i[1] == 1 ? parse_ants(lem, line, &i[2]) :
 						parse_room(lem, line, &i[2], &i[1]);
-		else if (i[1] == 3)
-			parse_neigh(lem, line, &i[2], &i[1]);
+		i[1] == 3 ? parse_neigh(lem, line, &i[2], &i[1]) : (0);
 		ft_strdel(&line);
 	}
+	ft_strdel(&line);
 	close(i[0]);
 	return (i[1] == -1 ? -1 : check_data(lem));
 }
